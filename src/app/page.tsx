@@ -7,7 +7,7 @@ export default function Home() {
       <section className="flex min-h-[80vh] items-center bg-white py-20 lg:py-32">
         <div className="mx-auto w-full max-w-5xl px-6 lg:px-8">
           <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[var(--ct-muted)]">
-            For executives, institutional buyers, and governance leaders
+            For enterprise decision leaders, governance officers, and cross-organizational decision system designers
           </p>
           <h1 className="mb-8 text-[var(--ct-dark)]">
             STOP GUESSING. START GOVERNING.

@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --ct-primary: #1e3a5f;
-  --ct-primary-dark: #152a45;
-  --ct-slate: #475569;
-  --ct-slate-dark: #334155;
-  --ct-dark: #0f172a;
-  --ct-light: #f8fafc;
-  --ct-border: #e2e8f0;
-  --ct-muted: #64748b;
+  /* CriticalThink Brand Colors - Aligned with CriticalThinkHR */
+  --ct-primary: #3B82F6;        /* Primary Blue - CTAs only */
+  --ct-primary-dark: #2563EB;   /* Darker blue for hover states */
+  --ct-slate: #64748B;          /* Slate Gray - body text */
+  --ct-slate-dark: #475569;     /* Darker slate */
+  --ct-dark: #111827;           /* Dark - headlines, institutional authority */
+  --ct-light: #f8fafc;          /* Off-white backgrounds */
+  --ct-border: #e2e8f0;         /* Subtle borders */
+  --ct-muted: #64748b;          /* Muted text */
   --background: #ffffff;
   --foreground: var(--ct-dark);
 }
