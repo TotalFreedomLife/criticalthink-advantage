@@ -21,9 +21,9 @@ export function Footer() {
             <Image
               src="/CriticalThinkAdvantageLogo.png"
               alt="CriticalThink Advantage"
-              width={180}
-              height={36}
-              className="h-7 w-auto"
+              width={220}
+              height={44}
+              className="h-9 w-auto"
             />
           </Link>
 

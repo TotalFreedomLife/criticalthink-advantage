@@ -24,9 +24,9 @@ export function Header() {
             <Image
               src="/CriticalThinkAdvantageLogo.png"
               alt="CriticalThink Advantage"
-              width={200}
-              height={40}
-              className="h-8 w-auto lg:h-10"
+              width={280}
+              height={56}
+              className="h-10 w-auto lg:h-14"
               priority
             />
           </Link>
