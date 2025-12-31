@@ -27,8 +27,9 @@ export default function TrustPage() {
                   Secure Authentication
                 </strong>
                 <p className="mt-1 text-[var(--ct-slate)]">
-                  Identity verification through industry-standard protocols.
-                  Multi-factor authentication available for all deployments.
+                  Identity verification through industry-standard authentication
+                  protocols. Multi-factor authentication is supported and
+                  available for deployments where enabled.
                 </p>
               </div>
             </li>
@@ -39,8 +40,9 @@ export default function TrustPage() {
                   Data Isolation by Deployment
                 </strong>
                 <p className="mt-1 text-[var(--ct-slate)]">
-                  Each deployment operates within isolated data boundaries.
-                  Cross-deployment data access is architecturally prevented.
+                  Each deployment is designed to operate within isolated data
+                  boundaries. Access controls and row-level security policies
+                  are used to prevent cross-deployment data access.
                 </p>
               </div>
             </li>
@@ -51,9 +53,10 @@ export default function TrustPage() {
                   Principle of Least Privilege
                 </strong>
                 <p className="mt-1 text-[var(--ct-slate)]">
-                  Access controls are granular. Users access only the data
-                  required for their role. Administrative functions are
-                  restricted and audited.
+                  Access controls are designed around the principle of least
+                  privilege. Users are granted access only to data required for
+                  their role. Administrative functions are restricted and
+                  monitored.
                 </p>
               </div>
             </li>
@@ -64,9 +67,9 @@ export default function TrustPage() {
                   Encryption at Rest and in Transit
                 </strong>
                 <p className="mt-1 text-[var(--ct-slate)]">
-                  All data is encrypted using current industry standards. TLS
-                  for transit. AES-256 for storage. Key management follows
-                  security best practices.
+                  Data is encrypted in transit using TLS. Data at rest is
+                  encrypted by underlying cloud infrastructure. Key management
+                  follows cloud provider security best practices.
                 </p>
               </div>
             </li>
@@ -99,9 +102,10 @@ export default function TrustPage() {
                 No External Model Development
               </h3>
               <p className="text-[var(--ct-slate)]">
-                Customer data is not used to build or improve external AI
-                models. Platform improvements use aggregated, anonymized
-                patterns only, never individual records.
+                Customer data is not used to train publicly available AI
+                models. Any AI-assisted processing is limited to providing
+                platform functionality and does not create external, reusable
+                models.
               </p>
             </div>
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
@@ -147,8 +151,8 @@ export default function TrustPage() {
               <p className="text-[var(--ct-slate)]">
                 Platform operations follow documented internal standards for
                 scenario development, evaluation methodology, and certification
-                criteria. These standards are versioned, reviewed, and updated
-                through a defined governance process.
+                criteria. Standards are versioned and maintained through a
+                documented governance process.
               </p>
             </div>
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
@@ -171,8 +175,8 @@ export default function TrustPage() {
         <h2 className="mb-8">Enterprise Integration</h2>
         <div className="max-w-3xl">
           <p className="mb-8">
-            CriticalThink Advantage&#8482; is designed to integrate with existing
-            enterprise infrastructure, not replace it.
+            Enterprise integration capabilities are designed into the platform
+            architecture and available as part of the enterprise roadmap.
           </p>
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
@@ -180,8 +184,8 @@ export default function TrustPage() {
                 Single Sign-On (SSO)
               </h3>
               <p className="text-[var(--ct-slate)]">
-                SAML 2.0 and OAuth 2.0 support for seamless identity federation
-                with existing enterprise identity providers.
+                OAuth 2.0 authentication is supported. SAML-based SSO is
+                available for enterprise deployments.
               </p>
             </div>
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
@@ -189,8 +193,9 @@ export default function TrustPage() {
                 API Access
               </h3>
               <p className="text-[var(--ct-slate)]">
-                RESTful APIs for programmatic access to governance data,
-                certification records, and assessment results.
+                API access for programmatic integration with governance data,
+                certification records, and assessment results for enterprise
+                deployments.
               </p>
             </div>
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
@@ -198,7 +203,7 @@ export default function TrustPage() {
                 Data Export
               </h3>
               <p className="text-[var(--ct-slate)]">
-                Structured export formats for integration with HRIS, LMS, and
+                Structured data export for integration with HRIS, LMS, and
                 compliance management systems.
               </p>
             </div>
@@ -207,8 +212,9 @@ export default function TrustPage() {
                 Webhook Events
               </h3>
               <p className="text-[var(--ct-slate)]">
-                Real-time event notifications for certification completions,
-                assessment milestones, and governance alerts.
+                Webhook event notifications for certification completions,
+                assessment milestones, and governance alerts are available for
+                governed deployments.
               </p>
             </div>
           </div>
@@ -221,8 +227,9 @@ export default function TrustPage() {
         <div className="max-w-3xl">
           <p className="mb-6">
             Organizations operating in regulated environments require audit
-            trails. CriticalThink Advantage&#8482; produces documentation that
-            supports institutional accountability.
+            trails. CriticalThink Advantage&#8482; produces documentation and
+            artifacts that support institutional accountability and audit
+            review.
           </p>
           <ul className="space-y-4">
             <li className="flex items-start gap-4">
