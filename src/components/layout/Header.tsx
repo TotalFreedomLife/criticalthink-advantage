@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Container } from "@/components/ui";
 
@@ -19,12 +20,15 @@ export function Header() {
       <Container size="wide">
         <nav className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-lg font-semibold tracking-tight text-[var(--ct-dark)] lg:text-xl"
-          >
-            CriticalThink Advantage
-            <span className="text-[var(--ct-primary)]">&#8482;</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/CriticalThinkAdvantageLogo.png"
+              alt="CriticalThink Advantage"
+              width={200}
+              height={40}
+              className="h-8 w-auto lg:h-10"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

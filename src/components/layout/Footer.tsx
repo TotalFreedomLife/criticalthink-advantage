@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui";
 
 const footerLinks = [
@@ -16,10 +17,15 @@ export function Footer() {
       <Container size="wide">
         <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
           {/* Logo */}
-          <div className="text-lg font-semibold tracking-tight text-[var(--ct-dark)]">
-            CriticalThink Advantage
-            <span className="text-[var(--ct-primary)]">&#8482;</span>
-          </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/CriticalThinkAdvantageLogo.png"
+              alt="CriticalThink Advantage"
+              width={180}
+              height={36}
+              className="h-7 w-auto"
+            />
+          </Link>
 
           {/* Navigation */}
           <nav className="flex flex-wrap justify-center gap-6">
