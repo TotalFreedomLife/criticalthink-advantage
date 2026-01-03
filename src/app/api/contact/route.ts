@@ -1,14 +1,11 @@
-import { SendMailClient } from "zeptomail";
 import { NextResponse } from "next/server";
 
-const url = "https://api.zeptomail.com/v1.1/email";
+const ZEPTOMAIL_URL = "https://api.zeptomail.com/v1.1/email";
 const token = process.env.ZEPTOMAIL_TOKEN!;
 
-const client = new SendMailClient({ url, token });
-
 // Where to send contact form submissions
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "mike@totalfreedomlife.com";
-const CONTACT_NAME = process.env.CONTACT_NAME || "Mike";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "contact@criticalthinkadvantage.com";
+const CONTACT_NAME = process.env.CONTACT_NAME || "CriticalThink Advantage";
 
 interface ContactFormData {
   name: string;
@@ -41,37 +38,55 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send email via ZeptoMail
-    await client.sendMail({
-      from: {
-        address: "contact@criticalthinkadvantage.com",
-        name: "CriticalThink Advantage",
+    // Send email via ZeptoMail REST API
+    const response = await fetch(ZEPTOMAIL_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token,
       },
-      to: [
-        {
-          email_address: {
-            address: CONTACT_EMAIL,
-            name: CONTACT_NAME,
-          },
+      body: JSON.stringify({
+        from: {
+          address: "contact@criticalthinkadvantage.com",
+          name: "CriticalThink Advantage",
         },
-      ],
-      reply_to: {
-        address: email,
-        name: name,
-      },
-      subject: `[Contact] ${reason} - ${name} (${organization})`,
-      htmlbody: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Organization:</strong> ${organization}</p>
-        <p><strong>Role:</strong> ${role}</p>
-        <p><strong>Reason:</strong> ${reason}</p>
-        <hr />
-        <h3>Message:</h3>
-        <p>${message.replace(/\n/g, "<br />")}</p>
-      `,
+        to: [
+          {
+            email_address: {
+              address: CONTACT_EMAIL,
+              name: CONTACT_NAME,
+            },
+          },
+        ],
+        reply_to: [
+          {
+            address: email,
+            name: name,
+          },
+        ],
+        subject: `[Contact] ${reason} - ${name} (${organization})`,
+        htmlbody: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Organization:</strong> ${organization}</p>
+          <p><strong>Role:</strong> ${role}</p>
+          <p><strong>Reason:</strong> ${reason}</p>
+          <hr />
+          <h3>Message:</h3>
+          <p>${message.replace(/\n/g, "<br />")}</p>
+        `,
+      }),
     });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("ZeptoMail error:", errorData);
+      return NextResponse.json(
+        { error: "Failed to send message" },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
