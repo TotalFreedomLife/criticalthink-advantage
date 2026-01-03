@@ -29,7 +29,9 @@ export default function ContactPage() {
   const [honeypot, setHoneypot] = useState("");
   const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     setFormLoadTime(Date.now());
@@ -40,7 +42,7 @@ export default function ContactPage() {
     return EMAIL_REGEX.test(email);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Honeypot check - if filled, it's a bot
@@ -63,9 +65,26 @@ export default function ContactPage() {
       return;
     }
 
-    // In production, this would send to an API endpoint
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Failed to send message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -277,8 +296,12 @@ export default function ContactPage() {
               />
             </div>
 
-            <Button type="submit" size="large">
-              Submit Inquiry
+            {submitError && (
+              <p className="text-sm text-red-600">{submitError}</p>
+            )}
+
+            <Button type="submit" size="large" disabled={submitting}>
+              {submitting ? "Sending..." : "Submit Inquiry"}
             </Button>
           </form>
         </div>
