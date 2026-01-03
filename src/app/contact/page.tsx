@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Section, Button } from "@/components/ui";
 
 const contactReasons = [
@@ -11,18 +11,58 @@ const contactReasons = [
   "Other",
 ];
 
+// Email validation regex - RFC 5322 compliant
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
+// Minimum time in ms before form can be submitted (spam bots submit instantly)
+const MIN_SUBMIT_TIME = 3000;
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     organization: "",
     role: "",
     reason: "",
     message: "",
   });
+  const [honeypot, setHoneypot] = useState("");
+  const [formLoadTime, setFormLoadTime] = useState<number>(0);
   const [submitted, setSubmitted] = useState(false);
+  const [emailError, setEmailError] = useState("");
+
+  useEffect(() => {
+    setFormLoadTime(Date.now());
+  }, []);
+
+  const validateEmail = (email: string): boolean => {
+    if (!email) return false;
+    return EMAIL_REGEX.test(email);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot check - if filled, it's a bot
+    if (honeypot) {
+      // Silently "succeed" to not tip off bots
+      setSubmitted(true);
+      return;
+    }
+
+    // Time-based check - if submitted too fast, likely a bot
+    if (Date.now() - formLoadTime < MIN_SUBMIT_TIME) {
+      // Silently "succeed" to not tip off bots
+      setSubmitted(true);
+      return;
+    }
+
+    // Validate email
+    if (!validateEmail(formData.email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
     // In production, this would send to an API endpoint
     console.log("Form submitted:", formData);
     setSubmitted(true);
@@ -99,6 +139,20 @@ export default function ContactPage() {
 
           {/* CONTACT FORM */}
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Honeypot field - hidden from users, bots will fill it */}
+            <div className="absolute left-[-9999px]" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
+
             <div>
               <label
                 htmlFor="name"
@@ -115,6 +169,34 @@ export default function ContactPage() {
                 onChange={handleChange}
                 className="w-full border border-[var(--ct-border)] bg-white px-4 py-3 text-[var(--ct-dark)] focus:border-[var(--ct-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--ct-primary)]"
               />
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="mb-2 block text-sm font-medium text-[var(--ct-dark)]"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={(e) => {
+                  handleChange(e);
+                  if (emailError) setEmailError("");
+                }}
+                className={`w-full border bg-white px-4 py-3 text-[var(--ct-dark)] focus:outline-none focus:ring-1 ${
+                  emailError
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                    : "border-[var(--ct-border)] focus:border-[var(--ct-primary)] focus:ring-[var(--ct-primary)]"
+                }`}
+              />
+              {emailError && (
+                <p className="mt-1 text-sm text-red-600">{emailError}</p>
+              )}
             </div>
 
             <div>
