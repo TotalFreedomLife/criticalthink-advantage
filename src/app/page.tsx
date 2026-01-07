@@ -140,7 +140,7 @@ export default function Home() {
             href="https://app.criticalthinkhr.com"
           />
           <DeploymentCard
-            title="CriticalThink PMP&#8482;"
+            title="CriticalThink Projects&#8482;"
             status="Coming Soon"
             description="Govern project execution decisions consistently across global portfolios. Align judgment to PMI standards."
           />

@@ -48,7 +48,7 @@ export default function DeploymentsPage() {
           <div className="border border-[var(--ct-border)] bg-white p-8">
             <div className="mb-4 flex items-start justify-between">
               <h2 className="text-2xl font-semibold text-[var(--ct-dark)]">
-                CriticalThink PMP&#8482;
+                CriticalThink Projects&#8482;
               </h2>
               <span className="inline-block border border-amber-200 bg-amber-50 px-3 py-1 text-sm font-medium text-amber-700">
                 In Development
