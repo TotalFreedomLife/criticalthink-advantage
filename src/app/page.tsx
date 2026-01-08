@@ -1,199 +1,301 @@
-import { Button, Section, DeploymentCard } from "@/components/ui";
+import { Button, Section } from "@/components/ui";
 
 export default function Home() {
   return (
     <>
-      {/* SECTION 1 - HERO (Platform Thesis) */}
-      <section className="flex min-h-[80vh] items-center bg-white py-20 lg:py-32">
+      {/* SECTION 1 - HERO */}
+      <section className="flex min-h-[70vh] items-center bg-white py-20 lg:py-32">
         <div className="mx-auto w-full max-w-5xl px-6 lg:px-8">
-          <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[var(--ct-muted)]">
-            For enterprise decision leaders, governance officers, and cross-organizational decision system designers
-          </p>
           <h1 className="mb-8 text-[var(--ct-dark)]">
-            STOP GUESSING. START GOVERNING.
+            The CriticalThink Advantage&#8482; Methodology
           </h1>
-          <p className="mb-12 max-w-3xl text-xl leading-relaxed text-[var(--ct-slate)] lg:text-2xl">
-            CriticalThink Advantage&#8482; is a decision governance platform
-            that defines how high-stakes decisions are evaluated, justified,
-            and defended across institutional domains.
+          <p className="mb-6 max-w-3xl text-xl leading-relaxed text-[var(--ct-slate)] lg:text-2xl">
+            A structured decision-governance methodology for evaluating,
+            justifying, and defending high-stakes decisions when the right
+            answer isn&apos;t obvious.
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Button href="/deployments" size="large">
-              View HR Deployment
-            </Button>
-            <Button href="/contact" variant="secondary" size="large">
-              Contact Platform Team
-            </Button>
-          </div>
+          <p className="max-w-3xl text-lg text-[var(--ct-muted)]">
+            Used internally across the CriticalThink platform to assess
+            decision quality under executive-level scrutiny.
+          </p>
         </div>
       </section>
 
-      {/* SECTION 2 - THE PROBLEM (Category Creation) */}
-      <Section background="light">
-        <h2 className="mb-8">Decisions Fail Before Systems Do.</h2>
+      {/* SECTION 2 - WHY THIS METHODOLOGY EXISTS */}
+      <Section background="light" id="why">
+        <h2 className="mb-8">Why Decision Governance Fails Without Structure</h2>
         <div className="max-w-3xl">
           <p className="mb-6">
-            Organizations do not fail because they lack data. They do not fail
-            because policy is absent. They fail because judgment is untrained,
-            inconsistent, and undocumented.
+            High-stakes decisions rarely fail because the information was
+            unavailable. They fail because the decision-making process itself
+            lacked structure.
           </p>
           <p className="mb-6">
-            When a hiring decision leads to litigation, the question is not
-            whether a process existed. The question is whether the decision
-            itself can be justified. When a project fails, stakeholders do not
-            ask for more dashboards. They ask why the warning signs were
-            ignored.
+            Ambiguity creates paralysis. Conflicting incentives create
+            compromise. Risk exposure remains invisible until it materializes.
+            And the burden of explaining a decision later falls on reasoning
+            that was never documented.
+          </p>
+          <p className="mb-6">
+            Good answers fail for structural reasons. A defensible option is
+            rejected because the governing issue was misidentified. A
+            reasonable path is abandoned because competing priorities were
+            never reconciled. A sound decision cannot be justified because the
+            rationale existed only in memory.
           </p>
           <p>
-            This is an institutional risk problem. And it requires an
-            institutional solution.
+            Structure does not guarantee the right decision. But without
+            structure, even right decisions become indefensible.
           </p>
         </div>
       </Section>
 
-      {/* SECTION 3 - WHAT DECISION GOVERNANCE IS */}
-      <Section>
-        <h2 className="mb-8">Decision Governance Is the Missing Layer.</h2>
+      {/* SECTION 3 - WHAT THE CRITICALTHINK ADVANTAGE IS */}
+      <Section id="what">
+        <h2 className="mb-8">What the CriticalThink Advantage&#8482; Is</h2>
         <div className="max-w-3xl">
           <p className="mb-8">
-            Decision governance is the discipline of ensuring that judgment is
-            structured, evaluated, and defensible. It is not policy enforcement.
-            It is not compliance automation. It is the systematic development
-            of decision-making capability at the institutional level.
+            The CriticalThink Advantage&#8482; is a decision-governance
+            methodology that evaluates whether a decision is:
+          </p>
+          <div className="mb-8 space-y-6">
+            <div className="border-l-2 border-[var(--ct-primary)] pl-6">
+              <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
+                Foundational
+              </h3>
+              <p className="text-[var(--ct-slate)]">
+                Addresses the root cause, not a surface symptom. Distinguishes
+                the governing issue from adjacent concerns.
+              </p>
+            </div>
+            <div className="border-l-2 border-[var(--ct-primary)] pl-6">
+              <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
+                Systemic
+              </h3>
+              <p className="text-[var(--ct-slate)]">
+                Scales as a repeatable standard. Creates precedent that can be
+                applied consistently across similar situations.
+              </p>
+            </div>
+            <div className="border-l-2 border-[var(--ct-primary)] pl-6">
+              <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
+                Defensible
+              </h3>
+              <p className="text-[var(--ct-slate)]">
+                Can be justified later using explicit reasoning. Produces a
+                rationale that withstands institutional scrutiny.
+              </p>
+            </div>
+          </div>
+          <p className="border-t border-[var(--ct-border)] pt-6 text-[var(--ct-muted)]">
+            This methodology does not prescribe actions. It evaluates decision
+            quality under institutional constraints.
+          </p>
+        </div>
+      </Section>
+
+      {/* SECTION 4 - WHEN THE METHODOLOGY IS APPLIED */}
+      <Section background="light" id="when">
+        <h2 className="mb-8">When the Methodology Is Applied</h2>
+        <div className="max-w-3xl">
+          <p className="mb-8">
+            The CriticalThink Advantage&#8482; methodology is applied when
+            decisions carry institutional weight and standard procedures
+            provide insufficient guidance.
+          </p>
+          <ul className="mb-8 space-y-4">
+            <li className="flex items-start gap-4">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
+              <span className="text-lg text-[var(--ct-slate)]">
+                Multiple defensible options exist
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
+              <span className="text-lg text-[var(--ct-slate)]">
+                Stakeholder incentives conflict
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
+              <span className="text-lg text-[var(--ct-slate)]">
+                Legal, reputational, or cultural risk is present
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
+              <span className="text-lg text-[var(--ct-slate)]">
+                Information is incomplete
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
+              <span className="text-lg text-[var(--ct-slate)]">
+                Decisions set precedent
+              </span>
+            </li>
+          </ul>
+          <p className="border-t border-[var(--ct-border)] pt-6 text-[var(--ct-muted)]">
+            The CriticalThink Advantage&#8482; is designed for environments
+            where judgment &mdash; not recall &mdash; determines outcomes.
+          </p>
+        </div>
+      </Section>
+
+      {/* SECTION 5 - THE THREE-LENS DECISION PRISM */}
+      <Section id="how">
+        <h2 className="mb-8">The Three-Lens Decision Prism</h2>
+        <div className="max-w-3xl">
+          <p className="mb-8">
+            The methodology applies three lenses to evaluate decision quality.
+            Each lens addresses a distinct dimension of governance.
+          </p>
+          <div className="space-y-8">
+            <div className="flex gap-6">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center bg-[var(--ct-primary)] text-lg font-semibold text-white">
+                1
+              </div>
+              <div>
+                <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
+                  Context
+                </h3>
+                <p className="mb-2 font-medium text-[var(--ct-dark)]">
+                  What is really happening?
+                </p>
+                <p className="text-[var(--ct-slate)]">
+                  Separates the core issue from operational noise. Identifies
+                  the governing question that must be answered.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center bg-[var(--ct-primary)] text-lg font-semibold text-white">
+                2
+              </div>
+              <div>
+                <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
+                  Priority
+                </h3>
+                <p className="mb-2 font-medium text-[var(--ct-dark)]">
+                  Why do reasonable options fail?
+                </p>
+                <p className="text-[var(--ct-slate)]">
+                  Identifies structurally unsound paths without prescribing
+                  tactics. Reveals constraints that eliminate options.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center bg-[var(--ct-primary)] text-lg font-semibold text-white">
+                3
+              </div>
+              <div>
+                <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
+                  Governance
+                </h3>
+                <p className="mb-2 font-medium text-[var(--ct-dark)]">
+                  Is the remaining path defensible?
+                </p>
+                <p className="text-[var(--ct-slate)]">
+                  Validates decisions against institutional standards. Ensures
+                  the rationale can withstand scrutiny.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* SECTION 6 - WHAT THE METHODOLOGY PRODUCES */}
+      <Section background="light" id="outputs">
+        <h2 className="mb-8">What the Methodology Produces</h2>
+        <div className="max-w-3xl">
+          <p className="mb-8">
+            Application of the methodology produces structured outputs that
+            support consistent evaluation and institutional accountability.
           </p>
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
               <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
-                Standards for Judgment
+                Clear Articulation
               </h3>
-              <p className="text-base text-[var(--ct-slate)]">
-                Explicit criteria that define how decisions should be made
-                within a domain.
+              <p className="text-[var(--ct-slate)]">
+                The governing issue is identified and separated from adjacent
+                concerns.
               </p>
             </div>
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
               <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
-                Scenario-Based Evaluation
+                Reasoning Trail
               </h3>
-              <p className="text-base text-[var(--ct-slate)]">
-                Realistic simulations that reveal how individuals apply
-                judgment under pressure.
+              <p className="text-[var(--ct-slate)]">
+                Explicit documentation of how the decision was reached.
               </p>
             </div>
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
               <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
-                Traceable Rationale
+                Risk-Aware Rationale
               </h3>
-              <p className="text-base text-[var(--ct-slate)]">
-                Documentation that connects each decision to the reasoning
-                behind it.
+              <p className="text-[var(--ct-slate)]">
+                Recognition of constraints and trade-offs inherent in the
+                decision.
               </p>
             </div>
             <div className="border-l-2 border-[var(--ct-primary)] pl-6">
               <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
-                Defensible Outcomes
+                Defensible Justification
               </h3>
-              <p className="text-base text-[var(--ct-slate)]">
-                Results that can withstand scrutiny because the process was
-                rigorous.
+              <p className="text-[var(--ct-slate)]">
+                A rationale that can be presented under institutional scrutiny.
               </p>
             </div>
           </div>
+          <p className="mt-8 border-t border-[var(--ct-border)] pt-6 text-[var(--ct-muted)]">
+            Outputs are used internally by the CriticalThink platform to
+            support consistent evaluation and feedback.
+          </p>
         </div>
       </Section>
 
-      {/* SECTION 4 - THE PLATFORM */}
-      <Section background="light">
-        <h2 className="mb-8">
-          CriticalThink Advantage&#8482; Is the Governance Layer.
-        </h2>
+      {/* SECTION 7 - WHERE THE METHODOLOGY LIVES */}
+      <Section id="where">
+        <h2 className="mb-8">Where the Methodology Lives</h2>
         <div className="max-w-3xl">
           <p className="mb-6">
-            CriticalThink Advantage&#8482; is not a point solution. It is the
-            platform layer that sits above domain-specific deployments,
-            providing the architecture for decision governance across the
-            enterprise.
+            The CriticalThink Advantage&#8482; methodology is embedded inside
+            the CriticalThink platform and applied consistently across
+            domain-specific deployments.
           </p>
-          <p className="mb-6">
-            The platform establishes the standards. It builds judgment through
-            rigorous scenario-based assessments. It certifies outcomes so they
-            can be defended. And it deploys into specific domains - human
-            capital, project execution, organizational leadership, strategic
-            planning - without compromising the integrity of the governance
-            model.
-          </p>
-          <p>
-            Each deployment inherits the discipline of the platform. Each
-            certification carries the weight of the standard.
-          </p>
+          <p className="mb-8">Example domains:</p>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-4">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
+              <span className="text-lg text-[var(--ct-slate)]">
+                Human capital decisions
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
+              <span className="text-lg text-[var(--ct-slate)]">
+                Project leadership environments
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
+              <span className="text-lg text-[var(--ct-slate)]">
+                Enterprise governance contexts
+              </span>
+            </li>
+          </ul>
         </div>
       </Section>
 
-      {/* SECTION 5 - DEPLOYMENTS (Preview Only) */}
-      <Section>
-        <h2 className="mb-12">Governance Deployed by Domain</h2>
-        <div className="grid gap-6 sm:grid-cols-2">
-          <DeploymentCard
-            title="CriticalThink HR&#8482;"
-            status="Live"
-            description="Decision governance for human capital, aligned to SHRM standards."
-            href="https://app.criticalthinkhr.com"
-          />
-          <DeploymentCard
-            title="CriticalThink Projects&#8482;"
-            status="Coming Soon"
-            description="Govern project execution decisions consistently across global portfolios. Align judgment to PMI standards."
-          />
-          <DeploymentCard
-            title="CriticalThink Leadership&#8482;"
-            status="Coming Soon"
-            description="Build defensible judgment in delegation, conflict resolution, and organizational stewardship."
-          />
-          <DeploymentCard
-            title="CriticalThink Strategy&#8482;"
-            status="Coming Soon"
-            description="Govern strategic decisions with traceable rationale for board-level accountability."
-          />
-        </div>
-      </Section>
-
-      {/* SECTION 6 - TRUST SIGNAL */}
+      {/* SECTION 8 - BRIDGE CTA */}
       <Section background="light">
-        <h2 className="mb-8">Built for Institutional Accountability</h2>
-        <ul className="max-w-2xl space-y-4">
-          <li className="flex items-start gap-4">
-            <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
-            <span className="text-lg text-[var(--ct-slate)]">
-              Audit-ready outputs
-            </span>
-          </li>
-          <li className="flex items-start gap-4">
-            <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
-            <span className="text-lg text-[var(--ct-slate)]">
-              Scenario traceability
-            </span>
-          </li>
-          <li className="flex items-start gap-4">
-            <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
-            <span className="text-lg text-[var(--ct-slate)]">
-              Standards-driven design
-            </span>
-          </li>
-          <li className="flex items-start gap-4">
-            <span className="mt-1.5 h-2 w-2 flex-shrink-0 bg-[var(--ct-primary)]"></span>
-            <span className="text-lg text-[var(--ct-slate)]">
-              Enterprise-grade security posture
-            </span>
-          </li>
-        </ul>
-      </Section>
-
-      {/* SECTION 7 - FINAL CTA */}
-      <Section>
         <div className="text-center">
-          <h2 className="mb-8">Governance Is No Longer Optional.</h2>
-          <Button href="/deployments" size="large">
-            View HR Deployment
+          <h2 className="mb-6">See the Methodology Applied in Practice</h2>
+          <Button href="https://www.criticalthinkhr.com" size="large">
+            See how it&apos;s applied in Human Capital decisions &rarr;
           </Button>
         </div>
       </Section>

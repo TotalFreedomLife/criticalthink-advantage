@@ -10,21 +10,19 @@ const CONTACT_NAME = process.env.CONTACT_NAME || "CriticalThink Advantage";
 interface ContactFormData {
   name: string;
   email: string;
-  organization: string;
-  role: string;
-  reason: string;
+  phone?: string;
   message: string;
 }
 
 export async function POST(request: Request) {
   try {
     const body: ContactFormData = await request.json();
-    const { name, email, organization, role, reason, message } = body;
+    const { name, email, phone, message } = body;
 
     // Basic server-side validation
-    if (!name || !email || !organization || !role || !reason || !message) {
+    if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "All fields are required" },
+        { error: "Name, email, and message are required" },
         { status: 400 }
       );
     }
@@ -64,14 +62,12 @@ export async function POST(request: Request) {
             name: name,
           },
         ],
-        subject: `[Contact] ${reason} - ${name} (${organization})`,
+        subject: `[Contact] Inquiry from ${name}`,
         htmlbody: `
           <h2>New Contact Form Submission</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Organization:</strong> ${organization}</p>
-          <p><strong>Role:</strong> ${role}</p>
-          <p><strong>Reason:</strong> ${reason}</p>
+          ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
           <hr />
           <h3>Message:</h3>
           <p>${message.replace(/\n/g, "<br />")}</p>

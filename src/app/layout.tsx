@@ -15,19 +15,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CriticalThink Advantage | Decision Governance Platform",
+  title: "The CriticalThink Advantage™ Methodology",
   description:
-    "CriticalThink Advantage is a decision governance platform that defines how high-stakes decisions are evaluated, justified, and defended across institutional domains.",
+    "A structured decision-governance methodology for evaluating, justifying, and defending high-stakes decisions when the right answer isn't obvious.",
   keywords: [
     "decision governance",
-    "institutional accountability",
-    "judgment standards",
-    "enterprise governance",
+    "decision methodology",
+    "judgment evaluation",
+    "defensible decisions",
   ],
   openGraph: {
-    title: "CriticalThink Advantage | Decision Governance Platform",
+    title: "The CriticalThink Advantage™ Methodology",
     description:
-      "CriticalThink Advantage is a decision governance platform that defines how high-stakes decisions are evaluated, justified, and defended across institutional domains.",
+      "A structured decision-governance methodology for evaluating, justifying, and defending high-stakes decisions when the right answer isn't obvious.",
     type: "website",
   },
 };

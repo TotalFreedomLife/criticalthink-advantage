@@ -6,9 +6,10 @@ import { useState } from "react";
 import { Container } from "@/components/ui";
 
 const navigation = [
-  { name: "Doctrine", href: "/doctrine" },
-  { name: "Deployments", href: "/deployments" },
-  { name: "Trust", href: "/trust" },
+  { name: "Why", href: "/#why" },
+  { name: "What", href: "/#what" },
+  { name: "When", href: "/#when" },
+  { name: "How", href: "/#how" },
   { name: "Contact", href: "/contact" },
 ];
 

@@ -3,14 +3,6 @@
 import { useState, useEffect } from "react";
 import { Section, Button } from "@/components/ui";
 
-const contactReasons = [
-  "Platform Partnership",
-  "Enterprise Deployment",
-  "Investment Inquiry",
-  "Domain Expansion Discussion",
-  "Other",
-];
-
 // Email validation regex - RFC 5322 compliant
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
@@ -21,9 +13,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    organization: "",
-    role: "",
-    reason: "",
+    phone: "",
     message: "",
   });
   const [honeypot, setHoneypot] = useState("");
@@ -88,9 +78,7 @@ export default function ContactPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({
       ...formData,
@@ -104,8 +92,8 @@ export default function ContactPage() {
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="mb-6">Message Received.</h1>
           <p className="text-xl text-[var(--ct-slate)]">
-            The platform team will review your inquiry and respond within two
-            business days.
+            Thank you for your inquiry. We will respond within two business
+            days.
           </p>
         </div>
       </Section>
@@ -117,46 +105,17 @@ export default function ContactPage() {
       {/* HEADER */}
       <Section>
         <div className="mx-auto max-w-2xl">
-          <h1 className="mb-6">Engage the Platform Team.</h1>
+          <h1 className="mb-6">Contact Us</h1>
           <p className="text-xl text-[var(--ct-slate)]">
-            CriticalThink Advantage&#8482; partners with organizations,
-            institutions, and investors building governance into decision
-            systems.
+            Have a question about the CriticalThink Advantage&#8482;
+            methodology? We&apos;re here to help.
           </p>
         </div>
       </Section>
 
-      {/* CONTACT OPTIONS */}
+      {/* CONTACT FORM */}
       <Section background="light">
         <div className="mx-auto max-w-2xl">
-          <div className="mb-12 grid gap-6 sm:grid-cols-3">
-            <div className="text-center">
-              <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
-                Platform Partnerships
-              </h3>
-              <p className="text-sm text-[var(--ct-slate)]">
-                Integration, co-development, and channel relationships.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
-                Enterprise Deployment
-              </h3>
-              <p className="text-sm text-[var(--ct-slate)]">
-                Multi-domain governance for large organizations.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="mb-2 text-lg font-semibold text-[var(--ct-dark)]">
-                Investment Inquiries
-              </h3>
-              <p className="text-sm text-[var(--ct-slate)]">
-                Institutional and strategic investment discussions.
-              </p>
-            </div>
-          </div>
-
-          {/* CONTACT FORM */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Honeypot field - hidden from users, bots will fill it */}
             <div className="absolute left-[-9999px]" aria-hidden="true">
@@ -177,7 +136,7 @@ export default function ContactPage() {
                 htmlFor="name"
                 className="mb-2 block text-sm font-medium text-[var(--ct-dark)]"
               >
-                Name
+                Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -195,7 +154,7 @@ export default function ContactPage() {
                 htmlFor="email"
                 className="mb-2 block text-sm font-medium text-[var(--ct-dark)]"
               >
-                Email
+                Email <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -220,62 +179,19 @@ export default function ContactPage() {
 
             <div>
               <label
-                htmlFor="organization"
+                htmlFor="phone"
                 className="mb-2 block text-sm font-medium text-[var(--ct-dark)]"
               >
-                Organization
+                Phone <span className="text-[var(--ct-muted)]">(optional)</span>
               </label>
               <input
-                type="text"
-                id="organization"
-                name="organization"
-                required
-                value={formData.organization}
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 className="w-full border border-[var(--ct-border)] bg-white px-4 py-3 text-[var(--ct-dark)] focus:border-[var(--ct-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--ct-primary)]"
               />
-            </div>
-
-            <div>
-              <label
-                htmlFor="role"
-                className="mb-2 block text-sm font-medium text-[var(--ct-dark)]"
-              >
-                Role
-              </label>
-              <input
-                type="text"
-                id="role"
-                name="role"
-                required
-                value={formData.role}
-                onChange={handleChange}
-                className="w-full border border-[var(--ct-border)] bg-white px-4 py-3 text-[var(--ct-dark)] focus:border-[var(--ct-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--ct-primary)]"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="reason"
-                className="mb-2 block text-sm font-medium text-[var(--ct-dark)]"
-              >
-                Reason for Contact
-              </label>
-              <select
-                id="reason"
-                name="reason"
-                required
-                value={formData.reason}
-                onChange={handleChange}
-                className="w-full border border-[var(--ct-border)] bg-white px-4 py-3 text-[var(--ct-dark)] focus:border-[var(--ct-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--ct-primary)]"
-              >
-                <option value="">Select a reason</option>
-                {contactReasons.map((reason) => (
-                  <option key={reason} value={reason}>
-                    {reason}
-                  </option>
-                ))}
-              </select>
             </div>
 
             <div>
@@ -283,7 +199,7 @@ export default function ContactPage() {
                 htmlFor="message"
                 className="mb-2 block text-sm font-medium text-[var(--ct-dark)]"
               >
-                Message
+                Message <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="message"
@@ -301,7 +217,7 @@ export default function ContactPage() {
             )}
 
             <Button type="submit" size="large" disabled={submitting}>
-              {submitting ? "Sending..." : "Submit Inquiry"}
+              {submitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </div>
