@@ -88,8 +88,8 @@ export default function Home() {
             </div>
           </div>
           <p className="border-t border-[var(--ct-border)] pt-6 text-[var(--ct-muted)]">
-            This methodology does not prescribe actions. It evaluates decision
-            quality under institutional constraints.
+            This methodology does not prescribe actions or outcomes. It
+            evaluates decision quality under institutional constraints.
           </p>
         </div>
       </Section>
@@ -181,7 +181,8 @@ export default function Home() {
                 </p>
                 <p className="text-[var(--ct-slate)]">
                   Identifies structurally unsound paths without prescribing
-                  tactics. Reveals constraints that eliminate options.
+                  tactics or operational steps. Reveals constraints that
+                  eliminate options.
                 </p>
               </div>
             </div>
@@ -294,6 +295,10 @@ export default function Home() {
       <Section background="light">
         <div className="text-center">
           <h2 className="mb-6">See the Methodology Applied in Practice</h2>
+          <p className="mb-8 text-[var(--ct-slate)]">
+            The methodology is operationalized inside domain-specific
+            deployments.
+          </p>
           <Button href="https://www.criticalthinkhr.com" size="large">
             See how it&apos;s applied in Human Capital decisions &rarr;
           </Button>
